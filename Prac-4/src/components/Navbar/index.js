@@ -1,30 +1,28 @@
 import React from 'react';
+import logo from '../../images/Klogo.png';
 
 import {
-    Nav,
-    NavLink,
-    Bars,
-    NavMenu,
-    NavBtn,
-    NavBtnLink
-  } from './NavbarElements';
+  Nav,
+  NavLink,
+  Bars,
+  NavMenu,
+  NavBtn,
+  NavBtnLink
+} from './NavbarElements';
 
 const Navbar = () => {
   return (
     <>
-        <Nav>
+      <Nav>
         <NavLink to='/'>
-          <h1>Home</h1>
+          <img src={logo} alt='logo' width={"60px"}/>
         </NavLink>
         <Bars />
         <NavMenu>
           <NavLink to='/about' activeStyle>
             About
           </NavLink>
-          <NavLink to='/services' activeStyle>
-            Services
-          </NavLink>
-          <NavLink to='/contact-us' activeStyle>
+          <NavLink to='/contact' activeStyle>
             Contact Us
           </NavLink>
           <NavLink to='/sign-up' activeStyle>
@@ -38,7 +36,7 @@ const Navbar = () => {
         </NavBtn>
       </Nav>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
