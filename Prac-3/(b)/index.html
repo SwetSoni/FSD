@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS class</title>
+  <style>
+    input {
+      margin: 3px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 100;
+        font-size: larger;
+        -webkit-text-stroke: 0.1px rgb(255, 255, 255);
+        font-weight: 800;
+        margin: 30px;
+      ">
+
+  </div>
+  <h3>Student Class Form</h3>
+  <form name="studentForm">
+    <label for="rno">Roll No. </label>
+    <input type="text" id="rno" name="rno" value="" /><br />
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="fname" value="" /><br />
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lname" value="" /><br />
+    <button type="submit">Submit</button>
+  </form>
+  <br />
+  <div id="stuData"></div>
+  <script>
+    class Student {
+      constructor() {
+        this.rno = 0;
+        this.fname = "";
+        this.lname = "";
+      }
+      getStudent() {
+        // alert(
+        //   "Student Details: Roll No.: " +
+        //     this.rno +
+        //     "\n First Name: " +
+        //     this.fname +
+        //     "\n Last Name: " +
+        //     this.lname
+        // );
+        document.getElementById("stuData").innerHTML =
+          "Student Details:<br/>  Roll No.: " +
+          this.rno +
+          "<br/>  First Name: " +
+          this.fname +
+          "<br/>  Last Name: " +
+          this.lname;
+      }
+      setStudent(r, fn, ln) {
+        this.rno = r;
+        this.fname = fn;
+        this.lname = ln;
+      }
+    }
+
+    var form = document.forms["studentForm"];
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      let r = form.rno.value;
+      let f = form.fname.value;
+      let l = form.lname.value;
+      var stu = new Student();
+      stu.setStudent(r, f, l);
+      stu.getStudent();
+    };
+  </script>
+</body>
+
+</html>
